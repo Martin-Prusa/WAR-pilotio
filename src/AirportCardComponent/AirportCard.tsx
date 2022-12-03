@@ -1,7 +1,7 @@
 import { Airport } from './Airport'
 import './airport-card.css'
 import {IconHeart, IconCompass} from '@tabler/icons'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { Alert } from '../AlertComponent/Alert'
 
 interface AirportCardProps {
@@ -20,10 +20,6 @@ export const AirportCard = ({airport, likeHandler}: AirportCardProps) => {
     const handleLike = () => {
         airport.like = !airport.like
         likeHandler(airport.id, airport.like)
-    }
-
-    const handleAlert = (text: string) => {
-        alert(text)
     }
 
 
