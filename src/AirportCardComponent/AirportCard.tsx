@@ -21,6 +21,10 @@ export const AirportCard = ({airport, likeHandler}: AirportCardProps) => {
         likeHandler(airport.id, airport.like)
     }
 
+    const handleAlert = (text: string) => {
+        alert(text)
+    }
+
 
     return (
     <div className='airport-card'>
@@ -34,7 +38,14 @@ export const AirportCard = ({airport, likeHandler}: AirportCardProps) => {
         </div>
         <div className='box' style={{width: '30%'}}>
             <button className={`airport-btn ${showCoords ? 'active' : ''}`} onClick={handleShowCoordinates}>
-                {!showCoords ? <div>Zobrazit souřadnice <IconCompass size={35} style={{marginLeft: 10}}></IconCompass></div> : <div>{`Long: ${airport.long} Lat: ${airport.lat}`}</div>}
+                {!showCoords ? 
+                <div>Zobrazit souřadnice <IconCompass size={35} style={{marginLeft: 10}}></IconCompass></div> 
+                : 
+                <div>
+                    <span onClick={() => handleAlert(`Long: ${airport.long}`)} style={{marginRight: 5}}>Long: {airport.long} </span>
+                    <span onClick={() => handleAlert(`Lat: ${airport.lat}`)}>Lat: {airport.lat} </span>
+                </div>
+                }
             </button>
         </div>
         <div className='box end-box'>
