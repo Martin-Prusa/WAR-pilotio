@@ -1,0 +1,27 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 2000px;
+}
+
+.pilot-container {
+    display: flex;
+}
+
+.pilot-info {
+    margin-right: 20px;
+}
+
+.pilot-text {
+    margin-right: 5px;
+    margin-top: 5px;
+    color: #369bfa;
+    text-align: end;
+}
+
+.pilot-image {
+    border-radius: 100%;
+}
