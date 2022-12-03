@@ -1,27 +1,53 @@
-import './alert.css'
-import {IconClipboardList} from '@tabler/icons'
+import "./alert.css";
+import { IconClipboardList, IconAlertTriangle } from "@tabler/icons";
+import { useState } from "react";
 
 interface AlertProps {
-    onClose: () => void
-    text: string
+  text: string
+  children: React.ReactNode
 }
 
-export const Alert = ({onClose, text}: AlertProps) => {
+export const Alert = ({ text, children }: AlertProps) => {
+  const [show, setShow] = useState(false);
 
-    const handleCopyText = () => {
+  const [showTextCopied, setShowTextCopied] = useState(false)
 
-    }
+  const closeAlert = () => {
+      setShow(false)
+  }
 
-    return (
-    <div className="alert">
-        <div className='alert-header'>Alert</div>
-        <div className='alert-content'>
+  const openAlert = () => {
+      setShow(true)
+  }
+
+  const handleCopyText = () => {
+    navigator.clipboard.writeText(text).then(() => {
+        setShowTextCopied(true)
+    })
+  };
+
+  return (
+    <>
+    <div onClick={openAlert}>{children}</div>
+    <div>
+      {show ? (
+        <div className="alert">
+          <div className="alert-header"><IconAlertTriangle /></div>
+          <div className="alert-content">
             <div>{text}</div>
-            <button onClick={handleCopyText}><IconClipboardList /></button>
+            <button onClick={handleCopyText}>
+              <IconClipboardList />
+            </button>
+            {showTextCopied ? (<div style={{color: '#0b3f76'}}>Text copied</div>) : <></>}
+          </div>
+          <div className="alert-footer">
+            <button onClick={closeAlert}>Close</button>
+          </div>
         </div>
-        <div className='alert-footer'>
-            <button onClick={onClose}>Close</button>
-        </div>
+      ) : (
+        <></>
+      )}
     </div>
-    )
-}
+    </>
+  );
+};

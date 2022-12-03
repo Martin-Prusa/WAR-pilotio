@@ -1,7 +1,8 @@
 import { Airport } from './Airport'
 import './airport-card.css'
 import {IconHeart, IconCompass} from '@tabler/icons'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { Alert } from '../AlertComponent/Alert'
 
 interface AirportCardProps {
     airport: Airport
@@ -39,11 +40,11 @@ export const AirportCard = ({airport, likeHandler}: AirportCardProps) => {
         <div className='box' style={{width: '30%'}}>
             <button className={`airport-btn ${showCoords ? 'active' : ''}`} onClick={handleShowCoordinates}>
                 {!showCoords ? 
-                <div>Zobrazit souřadnice <IconCompass size={35} style={{marginLeft: 10}}></IconCompass></div> 
+                <div className='text'>Zobrazit souřadnice <IconCompass size={35} style={{marginLeft: 10}}></IconCompass></div> 
                 : 
-                <div>
-                    <span onClick={() => handleAlert(`Long: ${airport.long}`)} style={{marginRight: 5}}>Long: {airport.long} </span>
-                    <span onClick={() => handleAlert(`Lat: ${airport.lat}`)}>Lat: {airport.lat} </span>
+                <div className='text'>
+                    <Alert text={`Long ${airport.long}`}><span style={{marginRight: 5}}>Long: {airport.long} </span></Alert>
+                    <Alert text={`Lat: ${airport.lat}`}><span>Lat: {airport.lat} </span></Alert>
                 </div>
                 }
             </button>

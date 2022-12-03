@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Navbar } from './NavbarComponent/Navbar';
 import { AirportCard } from './AirportCardComponent/AirportCard';
@@ -25,7 +24,6 @@ function App() {
 
   return (
     <div className="App">
-      <Alert text='lat: 3852985934859' onClose={() => {}}></Alert>
       <Navbar />
       <div className='airports-container'>
         <h2>Oblíbená letiště</h2>
