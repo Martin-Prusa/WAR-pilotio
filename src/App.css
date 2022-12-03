@@ -8,3 +8,12 @@
   max-width: 1000px;
   margin: 0 auto;
 }
+
+.no-content {
+  color: #0b3f76;
+  text-align: center;
+}
+
+.no-content div {
+  margin-bottom: 10px;
+}
