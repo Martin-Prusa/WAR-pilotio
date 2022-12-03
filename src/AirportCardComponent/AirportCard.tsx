@@ -34,7 +34,7 @@ export const AirportCard = ({airport, likeHandler}: AirportCardProps) => {
             <div>{airport.municipality}</div>
         </div>
         <div className='box' style={{width: '30%'}}>
-            <button className={`airport-btn ${showCoords ? 'active' : ''}`} onClick={handleShowCoordinates}>
+            <div className={`airport-btn ${showCoords ? 'active' : ''}`} onClick={handleShowCoordinates}>
                 {!showCoords ? 
                 <div className='text'>Zobrazit souřadnice <IconCompass size={35} style={{marginLeft: 10}}></IconCompass></div> 
                 : 
@@ -43,7 +43,7 @@ export const AirportCard = ({airport, likeHandler}: AirportCardProps) => {
                     <Alert text={`Lat: ${airport.lat}`}><span>Lat: {airport.lat} </span></Alert>
                 </div>
                 }
-            </button>
+            </div>
         </div>
         <div className='box end-box'>
             <div>

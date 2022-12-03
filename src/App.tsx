@@ -4,7 +4,7 @@ import { Navbar } from './NavbarComponent/Navbar';
 import { AirportCard } from './AirportCardComponent/AirportCard';
 import { data } from './data/data';
 import { IconArchive } from '@tabler/icons'
-import { Alert } from './AlertComponent/Alert';
+import { CurrentLocation } from './CurrentLocationComponent/CurrentLocation';
 
 function App() {
 
@@ -25,6 +25,9 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <div className='airports-container'>
+        <CurrentLocation />
+      </div>
       <div className='airports-container'>
         <h2>Oblíbená letiště</h2>
         {showFavourite ? airports.filter(airport => airport.like).map(airport => <AirportCard airport={airport} likeHandler={updateAirports} />) :
