@@ -5,14 +5,20 @@ import { useState } from 'react'
 
 interface AirportCardProps {
     airport: Airport
+    likeHandler: (id: number, like: boolean) => void
 }
 
-export const AirportCard = ({airport}: AirportCardProps) => {
+export const AirportCard = ({airport, likeHandler}: AirportCardProps) => {
 
     const [showCoords, setShowCoords] = useState(false)
 
     const handleShowCoordinates = () => {
         setShowCoords(true)
+    }
+
+    const handleLike = () => {
+        airport.like = !airport.like
+        likeHandler(airport.id, airport.like)
     }
 
 
@@ -37,7 +43,7 @@ export const AirportCard = ({airport}: AirportCardProps) => {
             </div>
             <div>
                 <div>
-                    <IconHeart size={50} color='#369bfa' ></IconHeart>
+                    <IconHeart onClick={handleLike} size={50} color='#369bfa' style={airport.like ? {fill: '#369bfa'} : {}}></IconHeart>
                 </div>
             </div>
         </div>
