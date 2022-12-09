@@ -38,7 +38,7 @@ export const Alert = ({ text, children }: AlertProps) => {
             <button onClick={handleCopyText}>
               <IconClipboardList />
             </button>
-            {showTextCopied ? (<div style={{color: '#0b3f76'}}>Text copied</div>) : <></>}
+            {showTextCopied ? (<div style={{color: '#0b3f76'}}>:-)</div>) : <></>}
           </div>
           <div className="alert-footer">
             <button onClick={closeAlert}>Close</button>
